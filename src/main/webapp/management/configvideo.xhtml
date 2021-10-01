@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Video</title>
+</h:head>
+<h:body>
+<b:navBar brand="Gestion de Plataformas y Tramites " brandHref="#" id="dropMenuExample" contentDisabled="#{navBarBean.navBarDisabled}"  look="primary">
+  <b:navbarLinks contentDisabled="#{navBarBean.navBarLinksDisabled}" look="primary">
+	<b:form>
+       <b:row>
+       		<b:column span="8"> 		
+       		 
+       		</b:column>
+       		<b:column span="1">
+       			<b:commandButton look="default" action="#{login.logout()}" value="Salir"></b:commandButton>       		
+       		</b:column>	
+       
+       </b:row>
+    </b:form>
+  </b:navbarLinks>
+</b:navBar>
+
+<b:row>
+<b:column span="3">
+    <h:form>
+  <b:accordion >
+    <b:panel title="Inicio Gestión de Fichas ">
+    	<b:listLinks>
+    		<b:navLink header="Sub Opción 1" />
+    		<b:navLink header="Sub Opción 2" />    	
+    	</b:listLinks>
+    </b:panel>
+        <b:panel title="Gestión de Multimedia">
+    	<b:listLinks>
+    		<b:navLink value="Administración de Fichas TV" />
+    		<b:navLink value="Administración de videos e imágenes" />
+    		<h:link value="TV" outcome="/video.xhtml" target="_blank" />
+    	</b:listLinks>
+    </b:panel>
+  </b:accordion>
+</h:form>
+  </b:column>
+
+  <b:column span="9">
+    <b:panel  title="ADMINISTRACIÓN DE VIDEOS E IMÁGENES ">
+    
+    	  <b:container fluid="true" contentDisabled="false">
+			  <b:row contentDisabled="false">
+			    <b:column span="6">
+			    	<h:form enctype="multipart/form-data">	  					
+						  <img src="./resources/img/video.jpg"></img>
+					      
+					      <br></br>
+					      TAMAÑO MÁXIMO DEL VIDEO
+					      <b:label text=""></b:label>
+					      <h:inputFile  id="video-id"  value="#Subir Video" required="true" requiredMessage="Please upload a file" alt="upload file" accept="video/mp4,video/x-m4v,video/*" ></h:inputFile> <b:button value="Subir Video"></b:button> 
+					      <b:dateTimePicker format="DD/MM/YYYY" label="Fecha de Inicio"/>	
+			    	</h:form>	      
+			    </b:column>
+			    
+			    <b:column span="6">
+			    	<h:form enctype="multipart/form-data">
+			    	 <img src="./resources/img/img.png" style="height: 260px"></img>
+			    	  <br></br>
+				      TAMAÑO MÁXIMO DE LA IMAGEN				      
+				      <b:label text=""></b:label>				      
+				      <h:inputFile  id="image-id"  value="Subir Imagen" required="true" requiredMessage="Please upload a file" alt="upload file" accept="image/png, image/jpeg"></h:inputFile><b:button value="Subir Imagen"></b:button>		      
+				      <b:dateTimePicker format="DD/MM/YYYY" label="Fecha de Fin" />			    					    	
+			    	</h:form>			   
+			    </b:column>
+			  </b:row>
+			</b:container>     
+    </b:panel>
+		<p:growl id="messages" showDetail="true"/>
+		
+	<div class="card">
+	    <h5>Multiple</h5>
+	    <h:form enctype="multipart/form-data">
+	        <p:fileUpload value="#{fileUploadView.files}" mode="simple" skinSimple="true" multiple="true"/>
+	        <p:commandButton value="Submit" ajax="false" action="#{fileUploadView.uploadMultiple}" styleClass="p-mt-3 ui-button-outlined p-d-block"/>
+	    </h:form>
+	</div>
+  </b:column>
+  
+</b:row>
+	
+</h:body>
+</html>

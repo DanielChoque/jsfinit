@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Video</title>
+    <link type="text/css" rel="stylesheet" href="./resources/css/style.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+	<link rel="preconnect" href="https://fonts.gstatic.com" />
+	
+</h:head>
+	<h:body style="background-image: url(http://10.1.26.162/imgti.jpg);    background-size: cover;"  id="element">
+		<video id="vid" preload="true" autoplay="true"  volume="0" class="row">
+	        <source src="./resources/img/ini.mp4"  type="video/mp4"></source>
+	    </video>
+	    
+	    <div class="flex-container" style="margin-top: 6%;margin-left: 4%; display: none;">
+		  <div class="caja caja1"><p class="pt">SAC-006</p></div>
+		  <div class="caja caja1"><p class="pt">SAC-005</p></div>
+		  <div class="caja caja1"><p class="pt">SAC-004</p></div>
+		  <div class="caja caja1"><p class="pt">SAC-003</p></div>
+		  <div class="caja caja1"><p class="pt">SAC-002</p></div>
+		  <div class="caja caja1"><p class="pt">SAC-001</p></div>		  
+		</div>	
+		<!-- input id="button" type="button" value="X" onclick="closeFullscreen()"/>
+		<button onclick="var el = document.getElementById('element'); el.webkitRequestFullscreen();">Go Full Screen!</button-->
+		<script src="./resources/js/app.js"></script>
+	</h:body>	
+</html>
