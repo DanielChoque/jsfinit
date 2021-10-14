@@ -12,6 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"/>
     <title>Video</title>
 </h:head>
 <h:body>
@@ -58,20 +59,24 @@
     	  <b:container fluid="true" contentDisabled="false">
 			  <b:row contentDisabled="false">
 			    <b:column span="6">
-			    	<h:form enctype="multipart/form-data">	  					
-						  <img src="./resources/img/video.jpg"></img>
+			    	<form action="http://10.1.26.162:8090/uploadMultipleFiles" method="post" enctype="multipart/form-data">	  					
+						  <img src="http://10.1.26.162:8090/downloadFilelocal/video.jpg"></img>
 					      
 					      <br></br>
 					      TAMAÑO MÁXIMO DEL VIDEO
 					      <b:label text=""></b:label>
-					      <h:inputFile  id="video-id"  value="#Subir Video" required="true" requiredMessage="Please upload a file" alt="upload file" accept="video/mp4,video/x-m4v,video/*" ></h:inputFile> <b:button value="Subir Video"></b:button> 
+					      <p>
+								<input type="file" name="file" id="file" accept="video/mp4,video/x-m4v,video/*" multiple="true"></input>    
+					
+					            <button class="button-send" type="submit" > Subir Video</button>
+					       </p> 
 					      <b:dateTimePicker format="DD/MM/YYYY" label="Fecha de Inicio"/>	
-			    	</h:form>	      
+			    	</form>	      
 			    </b:column>
 			    
 			    <b:column span="6">
 			    	<h:form enctype="multipart/form-data">
-			    	 <img src="./resources/img/img.png" style="height: 260px"></img>
+			    	 <img src="http://10.1.26.162:8090/downloadFilelocal/img.png" style="height: 260px"></img>
 			    	  <br></br>
 				      TAMAÑO MÁXIMO DE LA IMAGEN				      
 				      <b:label text=""></b:label>				      
@@ -84,16 +89,20 @@
     </b:panel>
 		<p:growl id="messages" showDetail="true"/>
 		
-	<div class="card">
-	    <h5>Multiple</h5>
-	    <h:form enctype="multipart/form-data">
-	        <p:fileUpload value="#{fileUploadView.files}" mode="simple" skinSimple="true" multiple="true"/>
-	        <p:commandButton value="Submit" ajax="false" action="#{fileUploadView.uploadMultiple}" styleClass="p-mt-3 ui-button-outlined p-d-block"/>
-	    </h:form>
-	</div>
+		
+    <form   action="http://10.1.26.162:8090/uploadMultipleFiles" method="post" enctype="multipart/form-data" >
+        <p>
+			<input type="file" name="file" id="file" accept="video/mp4,video/x-m4v,video/*" multiple="true"></input>    
+
+            <button class="button-send" type="submit" > <h2>Enviar</h2></button>
+        </p>  
+              		
+    </form>   	
   </b:column>
   
 </b:row>
+
+  
 	
 </h:body>
 </html>
