@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	  xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:w="http://xmlns.jcp.org/jsf/passthrough"
+      >
+      <!--       xmlns:f="http://xmlns.jcp.org/jsf/core" -->
+      
+    <f:metadata>
+<!-- 		<f:viewAction action="#{login.tieneAcceso2}" /> -->
+	</f:metadata> 
+      
+    <ui:composition template="/resources/template/principal.xhtml">
+    
+	<ui:define name="content">
+	<script>
+            function onMessage2(message, channel, event) {
+                //alert('wil');
+                console.log('jsf push message::' + message + ", channel ::" + channel + ", event::" + event);
+                document.getElementById("message").innerHTML = message;
+            }
+        </script>    	
+        <h1>JSF 2.3: CHAT </h1>
+        
+        <hr />
+        <h:form id="form">
+            <div class="box box-primary">
+				<div class="box-header with-border">
+					<h3 class="box-title">Solicitud de Certificación de Sistemas</h3>
+
+					<div class="box-tools pull-left">
+						<button type="button" class="btn btn-box-tool"
+							data-widget="collapse">
+							<i class="fa fa-minus"></i>
+						</button>
+					</div>
+				</div>
+
+				<div class="box-body">
+						<div id="message" />
+		            <div>
+		            <p:textEditor 
+		                    id="messageInput" 
+		                    value="#{websocketBean.message}"/>
+		
+		            </div>
+		            <br />
+		                
+		            <h:panelGroup layout="block" id="messageFromInputBox">
+		               hola aqui
+		            </h:panelGroup>
+		            <div>
+		            <!-- 		                    <f:ajax execute="@form" render="messageFromInputBox" /> -->
+<!-- 		                <p:commandButton  -->
+<!-- 		                    id="sendMessage2"  -->
+<!-- 		                    actionListener="#{websocketBean.sendMessage}" -->
+<!-- 		                    value="Enviar Mensaje" -->
+<!-- 		                    execute="@form" -->
+<!-- 		                    process="@form" -->
+<!-- 		                    update=":#{p:component('messageFromInputBox')}" -->
+<!-- 		                    render="messageFromInputBox"> -->
+<!-- 		                    <f:ajax execute="@form" render="messageFromInputBox" /> -->
+<!-- 		                </p:commandButton> -->
+						  <p:commandButton class="btn btn-primary" value="Clock" action="#{websocketBean.sendMessage2()}" update=":#{p:component('messageInput')}">
+						   <f:ajax />
+						  </p:commandButton>
+		            </div>
+		        </div>
+		      </div>
+        </h:form>
+        <f:websocket channel="helloChannel" onmessage="onMessage2" />
+
+	</ui:define>
+</ui:composition>
+
+
+</html>

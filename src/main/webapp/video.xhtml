@@ -17,7 +17,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" />
 	
 </h:head>
-	<h:body style="background-image: url(http://10.1.26.162/imgti.jpg);    background-size: cover;"  id="element">
+	<h:body style="background-image: url(http://10.1.26.162:8090/downloadFilelocalimg/imgti.jpg);    background-size: cover; ">
 		<video id="vid" preload="true" autoplay="true"  volume="0" class="row">
 	        <source src="./resources/img/ini.mp4"  type="video/mp4"></source>
 	    </video>
@@ -30,8 +30,64 @@
 		  <div class="caja caja1"><p class="pt">SAC-002</p></div>
 		  <div class="caja caja1"><p class="pt">SAC-001</p></div>		  
 		</div>	
+		
+		<div class="grid-container"  style="margin-top: 6%;">
+	        <div id="t1"><pre>KTB-001>V01</pre></div>
+	        <div id="t2"><pre>KTB-002>V02</pre></div>
+	        <div><pre>KTB-003>V03</pre></div>
+	        <div><pre>KTB-004>V04</pre></div>
+	        <div><pre>KTB-005>V05</pre></div>
+	        <div><pre>KTB-006>V06</pre></div>
+	        <div><pre>KTB-007>V07</pre></div>
+	        <div><pre>KTB-008>V08</pre></div>
+	        <!--div><pre>KTB-009</pre></div>
+	        <div><pre>KTB-010</pre></div>
+	        < div><pre>KTB-011</pre></div>
+	        <div><pre>KTB-012</pre></div-->
+	    </div>
 		<!-- input id="button" type="button" value="X" onclick="closeFullscreen()"/>
 		<button onclick="var el = document.getElementById('element'); el.webkitRequestFullscreen();">Go Full Screen!</button-->
+		
 		<script src="./resources/js/app.js"></script>
+		<script>
+	        sw=0;
+	        sw2=0;
+	        var intervalID = window.setInterval(miFuncion, 1000, 'Parametro 1', 'Parametro 2','Para 3');
+	
+	        function miFuncion(a,b,c) {
+	        // Aquí va tu código
+	        // Los parámetros son opcionales completamente
+	        console.log(a);
+	        console.log(b);
+	        console.log(sw);
+	        //event.target.style.color = "orange";
+	        //document.getElementById(da).setAttribute("style", "background-position: right center;   color: #fff;   text-decoration: none;  border: 2px solid rgb(255, 255, 255);background-image: linear-gradient(to right, #2c2c2c 0%, #000000  51%, #252525  100%)");
+	        var obj = document.getElementById('t1');
+	        if(sw==0){
+	            obj.style["color"] = "white";
+	            obj.style["background-image"] = "linear-gradient(to right, #2c2c2c 0%, #000000  51%, #252525  100%)";
+	            sw=1;
+	        }
+	        else{
+	            obj.style["color"] = "black";
+	            obj.style["background-image"] = "linear-gradient(to right, #ECE9E6 0%, #FFFFFF  51%, #ECE9E6  100%)";
+	            sw=0;
+	        }
+
+	        
+	        var obj2 = document.getElementById('t2');
+	        if(sw2==0){
+	            obj2.style["color"] = "white";
+	            obj2.style["background-image"] = "linear-gradient(to right, #2c2c2c 0%, #000000  51%, #252525  100%)";
+	            sw2=1;
+	        }
+	        else{
+	            obj2.style["color"] = "black";
+	            obj2.style["background-image"] = "linear-gradient(to right, #ECE9E6 0%, #FFFFFF  51%, #ECE9E6  100%)";
+	            sw2=0;
+	        }
+	        
+	        }
+	    </script>
 	</h:body>	
 </html>

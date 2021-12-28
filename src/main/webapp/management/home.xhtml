@@ -5,7 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:b="http://bootsfaces.net/ui">
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:p="http://primefaces.org/ui">
 <h:head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
@@ -35,11 +36,84 @@
                     <h:link outcome="edit" styleClass="glyphicon glyphicon-pencil btn btn-primary" style="margin-right: 10px" value="Edit">
                         <f:param name="id" value="#{employee.id}"/>
                     </h:link>
-                    <b:commandButton value="Deiete" look="danger" icon="trash" action="#{emp.deleteEmployee(employee.id)}"
+                    <b:commandButton value="Delete" look="danger" icon="trash" action="#{emp.deleteEmployee(employee.id)}"
                                      onclick="return confirm('Do you want to remove this employee?')"/>
                 </b:dataTableColumn>
             </b:dataTable>
         </h:form>
+        
+        <h:form id="form2">
+            <b:dataTable value="#{emp.showAllEmployees2()}" var="employee">
+                <b:dataTableColumn value="#{employee.num}" label="ID"/>
+                <b:dataTableColumn value="#{employee.name}" label="nombre"/>                
+                <b:dataTableColumn value="#{employee.size}" label="url"/>
+
+
+                <b:dataTableColumn label="Action">
+                    <h:link outcome="edit" styleClass="glyphicon glyphicon-pencil btn btn-primary" style="margin-right: 10px" value="Cambiar">
+                        <f:param name="id" value="#{employee.num}"/>
+                    </h:link>
+                    <b:commandButton value="Delete" look="danger" icon="trash" action="#{emp.deleteEmployee(employee.num)}"
+                                     onclick="return confirm('Realmente desea eliminar el Video #{employee.name}? ')"/>
+                </b:dataTableColumn>
+            </b:dataTable>
+        </h:form>
+        
+        <h:form>
+		    <div class="card">
+		        <p:dataTable var="employee" value="#{emp.showAllEmployees2()}">
+		            <p:column headerText="ID">
+		                <h:outputText value="#{employee.num}" />
+		            </p:column>
+		
+		            <p:column headerText="Nombre">
+		                <h:outputText value="#{employee.name}" />
+		            </p:column>
+		
+		            <p:column headerText="Tamaño">
+		                <h:outputText value="#{employee.size}" />
+		            </p:column>
+		
+		            <p:column headerText="Borrar">
+		                <!--h:outputText value="#{employee.num}" /-->
+		                  <p:toolbarGroup>
+						    <p:commandButton action="#{emp.testButtonAction2(employee.name)}" icon="ui-icon ui-icon-trash"/>						   
+						  </p:toolbarGroup>
+		            </p:column>
+		            <p:column headerText="Cambiar Video">
+		                <!--h:outputText value="#{employee.num}" /-->
+		                  <p:toolbarGroup>
+							   <p:commandButton action="#{emp.testButtonActionListener}" icon="ui-icon ui-icon-pencil"/>
+							   <p:commandButton action="#{emp.testButtonActionListener}" icon="ui-icon ui-icon-upload"/>
+						  </p:toolbarGroup>
+		            </p:column>
+		        </p:dataTable>
+		    </div>
+		</h:form>
+        <p:toolbar>
+  <p:toolbarGroup>
+    <p:commandButton action="#{emp.testButtonAction}" icon="ui-icon ui-icon-trash" onclick="return confirm('Realmente desea eliminar el Video #{employee.name}? ')"/>
+    <p:commandButton actionListener="#{emp.testButtonActionListener}" icon="ui-icon ui-icon-pencil"/>
+  </p:toolbarGroup>
+  
+  
+</p:toolbar>
+
+	<h:panelGrid columns="1" cellpadding="5">
+	    <p:commandButton value="Adicionar" type="button" onclick="PF('dlg2').show();" icon="ui-icon ui-icon-plus"/> 
+	</h:panelGrid>
+ 
+	<p:dialog header="Adicionar Video" widgetVar="dlg2" modal="true" height="100">
+	    <h:outputText value="Seleccione el Video." />
+	    	<form action="http://10.1.26.162:8090/uploadFile" method="post" enctype="multipart/form-data">
+	    		<p>
+	    			<input type="file" name="file" id="file" accept="video/mp4,video/x-m4v,video/*" multiple="false"></input>
+	    			<button class="button-send" type="submit" > Subir Video</button>
+	    		</p>	
+			</form>
+	</p:dialog>   
+ 
+
     </b:container>
 </h:body>
 </html>

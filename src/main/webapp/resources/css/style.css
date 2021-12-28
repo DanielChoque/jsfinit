@@ -59,3 +59,50 @@ body {
 .pt{
 	margin-top: -6%;
 }
+
+
+/*---------------nuevo-------------------*/
+/*----------disposiscon de botones----------*/
+.grid-container{
+    display: grid;    
+    /*background-color: rgb(37, 86, 223);*/
+    grid-template-columns: auto auto auto auto  ;   
+    justify-content: center;
+}
+
+.grid-container div{
+    background-color: gainsboro;
+    width: 250px;
+    margin: 10px;
+    text-align: center;
+    line-height: 5px;
+    font-size: 40px;
+    border: 2px solid black;    
+}
+pre{
+    font-family: Century Gothic, sans-serif,bold; 
+    font-weight: bold;
+}
+
+
+/*-----------estilos de fichas---------*/
+.grid-container div{background-image: linear-gradient(to right, #ECE9E6 0%, #FFFFFF  51%, #ECE9E6  100%)}
+.grid-container div{
+   margin: 10px;
+   padding: 1px 45px;
+   text-align: center;
+   text-transform: uppercase;
+   transition: 0.5s;
+   background-size: 200% auto;
+   color: rgb(0, 0, 0);            
+   box-shadow: 0 0 20px #eee;
+   border-radius: 15px;
+   display: block;
+ }
+ /*.grid-container div:hover{background-image: linear-gradient(to right, #2c2c2c 0%, #000000  51%, #252525  100%)}
+ .grid-container div:hover {
+   background-position: right center;
+   color: white;
+   text-decoration: none;
+   border: 2px solid rgb(255, 255, 255);
+ }*/

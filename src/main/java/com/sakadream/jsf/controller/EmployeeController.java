@@ -1,12 +1,15 @@
 package com.sakadream.jsf.controller;
 
 import com.sakadream.jsf.bean.Employee;
+import com.sakadream.jsf.bean.Multimedia;
 import com.sakadream.jsf.func.Functions;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
+
 import java.io.IOException;
 import java.io.Serializable;
 import java.sql.SQLException;
@@ -69,5 +72,33 @@ public class EmployeeController implements Serializable {
 
         func.deleteEmployee(id);
         return "home";
+    }
+    
+    public List<Multimedia> showAllEmployees2() throws SQLException, ClassNotFoundException {
+        return func.connectionAC();
+    }
+    
+    private int number;
+
+    public void increment() {
+        number++;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+    
+    public String testButtonAction() {
+        System.out.println("testButtonAction invoked");
+        return "anotherPage.xhtml";
+    }
+
+    public void testButtonActionListener(ActionEvent event) {
+        System.out.println("testButtonActionListener invoked");
+    }
+    
+    public void testButtonAction2(String name) {
+        System.out.println("Test name:"+name);
+        //return "anotherPage.xhtml";
     }
 }
